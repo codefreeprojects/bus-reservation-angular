@@ -1,12 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import {
-  AdminLoginDTO,
-  ForgotPasswordDTO,
-  LoginAuthDTO,
-  LoginDTO,
-  UserDTO,
-} from "../interfaces";
+import { AdminLoginDTO, LoginAuthDTO, UserRegisterDTO } from "../interfaces";
 import { AlertService } from "./alert.service";
 import { ApiService } from "./api.service";
 
@@ -20,13 +14,13 @@ export class AuthService {
     private router: Router
   ) {}
 
-  register(data: UserDTO) {
-    data.active = true;
-    data.id = 0;
-    this.api.post("/user/register", data).subscribe((res: any) => {
-      this.alert.success("Registration successful.");
-    }, this.alert.apiFail);
-  }
+  // register(data: UserRegisterDTO) {
+  //   data.active = true;
+  //   data.id = 0;
+  //   this.api.post("/user/register", data).subscribe((res: any) => {
+  //     this.alert.success("Registration successful.");
+  //   }, this.alert.apiFail);
+  // }
 
   login(data: LoginAuthDTO) {
     this.api.post("/authenticate", data).subscribe((res: any) => {
@@ -48,12 +42,6 @@ export class AuthService {
         sessionStorage.setItem("SESSION_ROLE", "ADMIN");
         this.router.navigateByUrl("/admin");
       }, this.alert.apiFail);
-  }
-
-  forgotPassword(data: ForgotPasswordDTO) {
-    this.api
-      .post("/user/forgot/password", data)
-      .subscribe(this.alert.apiSuccess, this.alert.apiFail);
   }
 
   isLoggedIn() {

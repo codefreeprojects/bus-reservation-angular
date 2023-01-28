@@ -1,21 +1,16 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { UserDTO } from 'src/app/interfaces';
-import { AlertService } from 'src/app/services/alert.service';
-import { AuthService } from 'src/app/services/auth.service';
-
+import { Component } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { AlertService } from "src/app/services/alert.service";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: "app-register",
+  templateUrl: "./register.component.html",
+  styleUrls: ["./register.component.scss"],
 })
 export class RegisterComponent {
-
-  public roles: string[] = [
-    'ACM', 'APPLICANT', 'STAFF'
-  ]
-  constructor(private alert: AlertService, private auth: AuthService) { }
+  public roles: string[] = ["ACM", "APPLICANT", "STAFF"];
+  constructor(private alert: AlertService, private auth: AuthService) {}
 
   onSubmit(ngForm: NgForm) {
     if (ngForm.form.invalid) {
@@ -23,10 +18,11 @@ export class RegisterComponent {
       return;
     }
 
-    const credentials: UserDTO = { ...ngForm.form.value, role: [ngForm.form.value.role] };
-    this.auth.register(credentials);
+    // const credentials: UserDTO = {
+    //   ...ngForm.form.value,
+    //   role: [ngForm.form.value.role],
+    // };
+    // this.auth.register(credentials);
     ngForm.resetForm();
-
   }
-
 }
