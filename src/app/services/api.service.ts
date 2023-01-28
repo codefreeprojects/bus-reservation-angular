@@ -11,7 +11,8 @@ export class ApiService {
   post(uri: string, payload: any) {
     return this.http.post(this.API_BASE_URL + uri, payload);
   }
-  get(uri: string) {
+  get(uri: string, header?: any) {
+    if (header) return this.http.get(this.API_BASE_URL + uri, header);
     return this.http.get(this.API_BASE_URL + uri);
   }
   postAuth(uri: string, payload: any) {
@@ -31,6 +32,7 @@ export class ApiService {
     const token = sessionStorage.getItem("SESSION_TOKEN");
     const headers = new HttpHeaders({
       Authorization: token || "",
+      "Content-Type": "text/plain",
     });
     return { headers: headers };
   }

@@ -1,3 +1,4 @@
+import { HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { AdminLoginDTO, LoginAuthDTO, UserRegisterDTO } from "../interfaces";
@@ -34,13 +35,16 @@ export class AuthService {
 
   adminLogin(data: AdminLoginDTO) {
     this.api
-      .get(`/adminlogin/${data.adminId}/${data.adminPassword}`)
+      .get(`/adminlogin/${data.adminId}/${data.adminPassword}`, {
+        responseType: "text",
+      })
       .subscribe((res: any) => {
-        console.log("res", res);
-        sessionStorage.setItem("SESSION_TOKEN", res.response);
-        sessionStorage.setItem("SESSION_ADMIN_ID", data.adminId.toString());
-        sessionStorage.setItem("SESSION_ROLE", "ADMIN");
-        this.router.navigateByUrl("/admin");
+        console.log(res);
+        if (res === "Welcome Admin") {
+          sessionStorage.setItem("SESSION_ADMIN_ID", data.adminId.toString());
+          sessionStorage.setItem("SESSION_ROLE", "ADMIN");
+          this.router.navigateByUrl("/admin");
+        } else this.alert.error("Wrong credentials");
       }, this.alert.apiFail);
   }
 

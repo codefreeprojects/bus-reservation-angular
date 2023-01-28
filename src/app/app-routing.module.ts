@@ -13,6 +13,8 @@ import { StaffComponent } from "./pages/layouts/staff/staff.component";
 import { AuthGuard } from "./gurds/auth.guard";
 import { StaffGuard } from "./gurds/staff.guard";
 import { AdminGuard } from "./gurds/admin.guard";
+import { AdminLoginPageComponent } from "./pages/admin-login-page/admin-login-page.component";
+import { AdminRegisterPageComponent } from "./pages/admin-register-page/admin-register-page.component";
 
 const routes: Routes = [
   {
@@ -31,7 +33,7 @@ const routes: Routes = [
       },
       {
         path: "admin-login",
-        component: LoginComponent,
+        component: AdminLoginPageComponent,
       },
       {
         path: "register",
@@ -39,7 +41,7 @@ const routes: Routes = [
       },
       {
         path: "admin-register",
-        component: RegisterComponent,
+        component: AdminRegisterPageComponent,
       },
     ],
   },
