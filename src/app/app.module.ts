@@ -27,9 +27,11 @@ import { CustomerFeedbackPageComponent } from "./pages/customer/customer-feedbac
 import { BusService } from "./services/bus.service";
 import { ReservationService } from "./services/reservation.service";
 import { FeedbackService } from "./services/feedback.service";
-import { SearchReservationPageComponent } from './pages/customer/search-reservation-page/search-reservation-page.component';
-import { AdminFeedbacksPageComponent } from './pages/admin/admin-feedbacks-page/admin-feedbacks-page.component';
-import { AdminReservationPageComponent } from './pages/admin/admin-reservation-page/admin-reservation-page.component';
+import { SearchReservationPageComponent } from "./pages/customer/search-reservation-page/search-reservation-page.component";
+import { AdminFeedbacksPageComponent } from "./pages/admin/admin-feedbacks-page/admin-feedbacks-page.component";
+import { AdminReservationPageComponent } from "./pages/admin/admin-reservation-page/admin-reservation-page.component";
+import { RouteService } from "./services/route.service";
+import { CustomerRoutesPageComponent } from './pages/customer/customer-routes-page/customer-routes-page.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { AdminReservationPageComponent } from './pages/admin/admin-reservation-p
     SearchReservationPageComponent,
     AdminFeedbacksPageComponent,
     AdminReservationPageComponent,
+    CustomerRoutesPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,7 @@ import { AdminReservationPageComponent } from './pages/admin/admin-reservation-p
     BusService,
     ReservationService,
     FeedbackService,
+    RouteService,
   ],
   bootstrap: [AppComponent],
 })

@@ -1,0 +1,91 @@
+<div class="register_page mt-4">
+  <div class="cantainer">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <h1>Route Details</h1>
+          <hr />
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Route Id</th>
+                <th scope="col">Route From</th>
+                <th scope="col">Route To</th>
+                <th scope="col">Distance</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let b of routesList">
+                <td>{{ b?.routeId }}</td>
+                <td>{{ b.routeFrom }}</td>
+                <td>{{ b.routeTo }}</td>
+                <td>{{ b.distance }}</td>
+
+                <td>
+                  <button
+                    class="btn btn-outline-success"
+                    (click)="openPopup(b?.bus || [])"
+                  >
+                    View
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal modal-lg"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{ display: displayStyle }"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Buses Details</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Bus Name</th>
+              <th scope="col">Bus Type</th>
+              <th scope="col">Route From</th>
+              <th scope="col">Route To</th>
+              <th scope="col">Seats</th>
+              <th scope="col">AvaiableSeats</th>
+              <th scope="col">Driver Name</th>
+              <th scope="col">Departure Time</th>
+              <th scope="col">Arrival Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let b of busesList">
+              <td>{{ b.busName }}</td>
+              <td>{{ b.busType }}</td>
+              <td>{{ b.routeFrom }}</td>
+              <td>{{ b.routeTo }}</td>
+              <td>{{ b.seats }}</td>
+              <td>{{ b.avaiableSeats }}</td>
+              <td>{{ b.driverName }}</td>
+              <td>{{ b?.departureTime }}</td>
+              <td>{{ b?.arrivalTime }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

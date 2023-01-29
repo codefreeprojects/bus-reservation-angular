@@ -22,6 +22,8 @@ import { CustomerFeedbackPageComponent } from "./pages/customer/customer-feedbac
 import { SearchReservationPageComponent } from "./pages/customer/search-reservation-page/search-reservation-page.component";
 import { AdminFeedbacksPageComponent } from "./pages/admin/admin-feedbacks-page/admin-feedbacks-page.component";
 import { AdminReservationPageComponent } from "./pages/admin/admin-reservation-page/admin-reservation-page.component";
+import { RoutesPageComponent } from "./pages/admin/routes-page/routes-page.component";
+import { CustomerRoutesPageComponent } from "./pages/customer/customer-routes-page/customer-routes-page.component";
 
 const routes: Routes = [
   {
@@ -74,6 +76,10 @@ const routes: Routes = [
         path: "reservations",
         component: AdminReservationPageComponent,
       },
+      {
+        path: "routes",
+        component: RoutesPageComponent,
+      },
     ],
   },
   {
@@ -97,6 +103,10 @@ const routes: Routes = [
       {
         path: "feedback",
         component: CustomerFeedbackPageComponent,
+      },
+      {
+        path: "routes",
+        component: CustomerRoutesPageComponent,
       },
     ],
   },

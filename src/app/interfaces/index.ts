@@ -65,3 +65,10 @@ export interface ReservationDTO {
   destination: string;
   bus?: BusDTO;
 }
+export interface RouteDTO {
+  routeId: number;
+  routeFrom: string;
+  routeTo: string;
+  distance: number;
+  bus?: BusDTO[];
+}

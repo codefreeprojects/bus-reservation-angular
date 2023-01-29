@@ -1,1 +1,103 @@
-<p>routes-page works!</p>
+<div class="register_page mt-4">
+  <div class="cantainer">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <h1>Create Route</h1>
+          <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+            <div class="row">
+              <div class="col-4 mt-3">
+                <div class="form-group">
+                  <label for="routeFrom"> Route From </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    ngModel
+                    name="routeFrom"
+                  />
+                </div>
+              </div>
+
+              <div class="col-4 mt-3">
+                <div class="form-group">
+                  <label for="routeTo">Route To </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    ngModel
+                    name="routeTo"
+                  />
+                </div>
+              </div>
+              <div class="col-4 mt-3">
+                <div class="form-group">
+                  <label for="distance">Distance in KM</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    ngModel
+                    name="distance"
+                  />
+                </div>
+              </div>
+              <div class="col-6 mt-3">
+                <div class="form-group">
+                  <label for="distance">Select Bus</label>
+                  <select
+                    type="text"
+                    class="form-control"
+                    ngModel
+                    name="bus"
+                    multiple
+                  >
+                    <option [value]="b.busId" *ngFor="let b of busesList">
+                      {{ b.busName + " " + b.routeFrom + " -> " + b.routeTo }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-outline-primary mt-3">
+              Submit
+            </button>
+          </form>
+
+          <h1 class="mt-3">Route Details</h1>
+          <hr />
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Route Id</th>
+                <th scope="col">Route From</th>
+                <th scope="col">Route To</th>
+                <th scope="col">Distance</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let b of routesList">
+                <td>{{ b?.routeId }}</td>
+                <td>{{ b.routeFrom }}</td>
+                <td>{{ b.routeTo }}</td>
+                <td>{{ b.distance }}</td>
+
+                <td>
+                  <button
+                    class="btn btn-outline-danger me-2"
+                    (click)="deleteUser(b.routeId)"
+                  >
+                    Delete
+                  </button>
+                  <!-- <button class="btn btn-outline-success" (click)="openPopup(b)">
+                View
+              </button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
