@@ -1,7 +1,12 @@
 import { HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { AdminLoginDTO, LoginAuthDTO, UserRegisterDTO } from "../interfaces";
+import {
+  AdminLoginDTO,
+  AdminRegisterDTO,
+  LoginAuthDTO,
+  UserRegisterDTO,
+} from "../interfaces";
 import { AlertService } from "./alert.service";
 import { ApiService } from "./api.service";
 
@@ -15,22 +20,29 @@ export class AuthService {
     private router: Router
   ) {}
 
-  // register(data: UserRegisterDTO) {
-  //   data.active = true;
-  //   data.id = 0;
-  //   this.api.post("/user/register", data).subscribe((res: any) => {
-  //     this.alert.success("Registration successful.");
-  //   }, this.alert.apiFail);
-  // }
+  register(data: UserRegisterDTO) {
+    this.api.post("/addUser", data).subscribe((res: any) => {
+      this.alert.success("Registration successful.");
+    }, this.alert.apiFail);
+  }
+
+  adminRegister(data: AdminRegisterDTO) {
+    this.api.post("/addAdmin", data).subscribe((res: any) => {
+      this.alert.success("Registration successful.");
+    }, this.alert.apiFail);
+  }
 
   login(data: LoginAuthDTO) {
-    this.api.post("/authenticate", data).subscribe((res: any) => {
-      console.log("res", res);
-      sessionStorage.setItem("SESSION_TOKEN", res.response);
-      sessionStorage.setItem("SESSION_USER_NAME", data.userName);
-      sessionStorage.setItem("SESSION_ROLE", "CUSTOMER");
-      this.router.navigateByUrl("/customer");
-    }, this.alert.apiFail);
+    this.api
+      .post("/authenticate", data, {
+        responseType: "text",
+      })
+      .subscribe((res: any) => {
+        sessionStorage.setItem("SESSION_TOKEN", res);
+        sessionStorage.setItem("SESSION_USER_NAME", data.userName);
+        sessionStorage.setItem("SESSION_ROLE", "CUSTOMER");
+        this.router.navigateByUrl("/customer");
+      }, this.alert.apiFail);
   }
 
   adminLogin(data: AdminLoginDTO) {
@@ -74,5 +86,13 @@ export class AuthService {
     )
       return true;
     return false;
+  }
+
+  getUserName() {
+    return sessionStorage.getItem("SESSION_USER_NAME");
+  }
+
+  userDetails() {
+    return this.api.get(`/find/by/${this.getUserName()}`);
   }
 }

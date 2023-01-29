@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { AlertService } from "src/app/services/alert.service";
 import { AuthService } from "src/app/services/auth.service";
+import { UserRegisterDTO } from "src/app/interfaces";
 
 @Component({
   selector: "app-register",
@@ -18,11 +19,14 @@ export class RegisterComponent {
       return;
     }
 
-    // const credentials: UserDTO = {
-    //   ...ngForm.form.value,
-    //   role: [ngForm.form.value.role],
-    // };
-    // this.auth.register(credentials);
+    console.log("ngForm", ngForm.form.value);
+
+    const credentials: UserRegisterDTO = {
+      ...ngForm.form.value,
+      reservation: null,
+      userLoginId: 0,
+    };
+    this.auth.register(credentials);
     ngForm.resetForm();
   }
 }

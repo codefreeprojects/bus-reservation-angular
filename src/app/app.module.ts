@@ -16,8 +16,18 @@ import { BasicComponent } from "./pages/layouts/basic/basic.component";
 import { AdminComponent } from "./pages/layouts/admin/admin.component";
 import { StaffComponent } from "./pages/layouts/staff/staff.component";
 import { DashboardComponent } from "./pages/admin/dashboard/dashboard.component";
-import { AdminLoginPageComponent } from './pages/admin-login-page/admin-login-page.component';
-import { AdminRegisterPageComponent } from './pages/admin-register-page/admin-register-page.component';
+import { AdminLoginPageComponent } from "./pages/admin-login-page/admin-login-page.component";
+import { AdminRegisterPageComponent } from "./pages/admin-register-page/admin-register-page.component";
+import { AddBusPageComponent } from "./pages/admin/add-bus-page/add-bus-page.component";
+import { FeedbacksComponent } from "./pages/admin/feedbacks/feedbacks.component";
+import { RoutesPageComponent } from "./pages/admin/routes-page/routes-page.component";
+import { CustomerDashboardPageComponent } from "./pages/customer/customer-dashboard-page/customer-dashboard-page.component";
+import { ReservationPageComponent } from "./pages/customer/reservation-page/reservation-page.component";
+import { CustomerFeedbackPageComponent } from "./pages/customer/customer-feedback-page/customer-feedback-page.component";
+import { BusService } from "./services/bus.service";
+import { ReservationService } from "./services/reservation.service";
+import { FeedbackService } from "./services/feedback.service";
+import { SearchReservationPageComponent } from './pages/customer/search-reservation-page/search-reservation-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +41,13 @@ import { AdminRegisterPageComponent } from './pages/admin-register-page/admin-re
     DashboardComponent,
     AdminLoginPageComponent,
     AdminRegisterPageComponent,
+    AddBusPageComponent,
+    FeedbacksComponent,
+    RoutesPageComponent,
+    CustomerDashboardPageComponent,
+    ReservationPageComponent,
+    CustomerFeedbackPageComponent,
+    SearchReservationPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +57,14 @@ import { AdminRegisterPageComponent } from './pages/admin-register-page/admin-re
     MaterialExampleModule,
     BrowserAnimationsModule,
   ],
-  providers: [AlertService, ApiService, AuthService],
+  providers: [
+    AlertService,
+    ApiService,
+    AuthService,
+    BusService,
+    ReservationService,
+    FeedbackService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

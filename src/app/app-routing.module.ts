@@ -15,6 +15,11 @@ import { StaffGuard } from "./gurds/staff.guard";
 import { AdminGuard } from "./gurds/admin.guard";
 import { AdminLoginPageComponent } from "./pages/admin-login-page/admin-login-page.component";
 import { AdminRegisterPageComponent } from "./pages/admin-register-page/admin-register-page.component";
+import { AddBusPageComponent } from "./pages/admin/add-bus-page/add-bus-page.component";
+import { CustomerDashboardPageComponent } from "./pages/customer/customer-dashboard-page/customer-dashboard-page.component";
+import { ReservationPageComponent } from "./pages/customer/reservation-page/reservation-page.component";
+import { CustomerFeedbackPageComponent } from "./pages/customer/customer-feedback-page/customer-feedback-page.component";
+import { SearchReservationPageComponent } from "./pages/customer/search-reservation-page/search-reservation-page.component";
 
 const routes: Routes = [
   {
@@ -45,50 +50,46 @@ const routes: Routes = [
       },
     ],
   },
-  // {
-  //   path: "admin",
-  //   component: AdminComponent,
-  //   canActivate: [AuthGuard, AdminGuard],
-  //   canActivateChild: [AuthGuard, AdminGuard],
-  //   children: [
-  //     {
-  //       path: "",
-  //       component: DashboardComponent,
-  //     },
-  //     {
-  //       path: "courses",
-  //       component: CoursesComponent,
-  //     },
-  //     {
-  //       path: "add-staff",
-  //       component: AddStaffComponent,
-  //     },
-  //     {
-  //       path: "add-admission",
-  //       component: AdmissionPageComponent,
-  //     },
-  //   ],
-  // },
-  // {
-  //   path: "customer",
-  //   component: StaffComponent,
-  //   canActivate: [AuthGuard, StaffGuard],
-  //   canActivateChild: [AuthGuard, StaffGuard],
-  //   children: [
-  //     {
-  //       path: "",
-  //       component: StaffDashboardComponent,
-  //     },
-  //     {
-  //       path: "courses",
-  //       component: CoursesComponent,
-  //     },
-  //     {
-  //       path: "add-admission",
-  //       component: AdmissionPageComponent,
-  //     },
-  //   ],
-  // },
+  {
+    path: "admin",
+    component: AdminComponent,
+    // canActivate: [AuthGuard, AdminGuard],
+    // canActivateChild: [AuthGuard, AdminGuard],
+    children: [
+      {
+        path: "",
+        component: DashboardComponent,
+      },
+      {
+        path: "bus-master",
+        component: AddBusPageComponent,
+      },
+    ],
+  },
+  {
+    path: "customer",
+    component: StaffComponent,
+    // canActivate: [AuthGuard, StaffGuard],
+    // canActivateChild: [AuthGuard, StaffGuard],
+    children: [
+      {
+        path: "",
+        component: CustomerDashboardPageComponent,
+      },
+      {
+        path: "make-reservation",
+        component: ReservationPageComponent,
+      },
+      {
+        path: "track-reservation",
+        component: SearchReservationPageComponent,
+      },
+      {
+        path: "feedback",
+        component: CustomerFeedbackPageComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({

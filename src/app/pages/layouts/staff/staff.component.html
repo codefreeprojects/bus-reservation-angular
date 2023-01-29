@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/staff">University System</a>
+    <a class="navbar-brand" href="/customer">University System</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,14 +8,20 @@
         <ul class="navbar-nav">
 
             <li class="nav-item">
-                <a class="nav-link" routerLink="/staff/courses" routerLinkActive="active">Courses</a>
+                <a class="nav-link" routerLink="/customer/" routerLinkActive="active">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/staff/add-admission" routerLinkActive="active">Add Admission</a>
+                <a class="nav-link" routerLink="/customer/make-reservation" routerLinkActive="active">Make Reservation</a>
             </li>
-<li class="nav-item">
-    <a class="nav-link" href="#" (click)="onLogout()">Logout</a>
-</li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/customer/track-reservation" routerLinkActive="active">Track Reservation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/customer/feedback" routerLinkActive="active">Feedback</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" (click)="onLogout()">Logout</a>
+            </li>
         </ul>
     </div>
 </nav>

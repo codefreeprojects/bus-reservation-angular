@@ -1,4 +1,21 @@
-- Middleware removed
 
--- Remaining components
-- HomeComponent
+
+
+BACKEND CHANGES
+-- CrossOrigin
+
+
+ADDED IN SecurityConfig.java
+.antMatchers(HttpMethod.DELETE, "/**").permitAll()
+.antMatchers(HttpMethod.PUT, "/**").permitAll()
+
+
+*********************** NOT WORKING THINGS ***********************
+- bus update api PUT:: /bus/update/
+- API not designed well /addReservation
+
+*********************** NEED TO BE DONE ***********************
+-- Need to make all fields required
+-- Feedbacks table list [admin]
+-- list Delete and update reservation [admin]
+-- list users delete update [admin]

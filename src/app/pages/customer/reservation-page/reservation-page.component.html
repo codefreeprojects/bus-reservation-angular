@@ -1,0 +1,66 @@
+<div class="register_page mt-4">
+    <div class="cantainer">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <h1>Make Reservation </h1>
+                    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+
+                       
+                        <div class="row">
+                           
+                            <div class="col-4 mt-3">
+                                <div class="form-group">
+                                    <label for="distance">Reservation Status</label>
+                                    <input type="text" class="form-control" ngModel name="reservationStatus">
+                                </div>
+                            </div>
+                            <div class="col-4 mt-3">
+                                <div class="form-group">
+                                    <label for="distance">Reservation Type</label>
+                                    <input type="text" class="form-control" ngModel name="reservationType">
+                                </div>
+                            </div>
+                            <div class="col-4 mt-3">
+                                <div class="form-group">
+                                    <label for="distance">Reservation Date</label>
+                                    <input type="date" class="form-control" ngModel name="reservationDate">
+                                </div>
+                            </div>
+                            <div class="col-4 mt-3">
+                                <div class="form-group">
+                                    <label for="distance">Reservation Time</label>
+                                    <input type="time" class="form-control" ngModel name="reservationTime">
+                                </div>
+                            </div>
+                            
+                            <div class="col-4 mt-3">
+                                <div class="form-group">
+                                    <label for="distance">Source</label>
+                                    <input type="text" class="form-control" ngModel name="source">
+                                </div>
+                            </div>
+                            <div class="col-4 mt-3">
+                                <div class="form-group">
+                                    <label for="distance">Destination</label>
+                                    <input type="text" class="form-control" ngModel name="destination">
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3">
+                                <div class="form-group">
+                                    <label for="distance">Select Bus</label>
+                                    <select type="text" class="form-control" ngModel name="bus">
+                                        <option [value]="b.busId" *ngFor="let b of busesList">{{b.busName + ' '+ b.routeFrom + ' -> '+ b.routeTo}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary mt-3">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

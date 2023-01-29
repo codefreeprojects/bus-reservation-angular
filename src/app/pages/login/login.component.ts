@@ -20,5 +20,6 @@ export class LoginComponent {
     }
     const credentials: LoginAuthDTO = ngForm.form.value;
     this.auth.login(credentials);
+    ngForm.resetForm();
   }
 }

@@ -1,0 +1,217 @@
+<div class="register_page">
+    <div class="cantainer">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <h1>Bus Details </h1>
+                    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+       
+                            
+                            <div class="row">
+                                <div class="col-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="busId"> Bus number</label>
+                                        <input type="number" class="form-control" ngModel name="busId">
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="busName"> Bus Name</label>
+                                        <input type="text" class="form-control" ngModel name="busName">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="driverName">Driver Name </label>
+                                        <input type="text" class="form-control" ngModel name="driverName">
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="busType">Bus Type</label>
+                                        <input type="text" class="form-control" ngModel name="busType">
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="routeFrom"> Route From</label>
+                                        <input type="text" class="form-control" ngModel name="routeFrom">
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="routeTo"> Route To</label>
+                                        <input type="text" class="form-control" ngModel name="routeTo">
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="routeTo"> Total Seats</label>
+                                        <input type="number" class="form-control" ngModel name="seats">
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="routeTo"> Avaiable Seats</label>
+                                        <input type="number" class="form-control" ngModel name="avaiableSeats">
+                                    </div>
+                                </div>
+                                <div class="col-4"></div>
+                                <div class="col-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="arrivalTime">Arrival Time </label>
+                                        <input type="time" class="form-control" ngModel name="arrivalTime">
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="departureTime">Departure Time</label>
+                                        <input type="time" class="form-control" ngModel name="departureTime">
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                        <button type="submit" class="btn btn-outline-primary mt-3">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 card">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Bus Name</th>
+                        <th scope="col">Bus Type</th>
+                        <th scope="col">Route From</th>
+                        <th scope="col">Route To</th>
+                        <th scope="col">Seats</th>
+                        <th scope="col">AvaiableSeats</th>
+                        <th scope="col">Driver Name</th>
+                        <th scope="col">Departure Time</th>
+                        <th scope="col">Arrival Time</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let b of busesList">
+                        <td>{{b.busName }}</td>
+                        <td>{{b.busType }}</td>
+                        <td>{{b.routeFrom}}</td>
+                        <td>{{b.routeTo}}</td>
+                        <td>{{b.seats}}</td>
+                        <td>{{b.avaiableSeats}}</td>
+                        <td>{{b.driverName}}</td>
+                        <td>{{b?.departureTime}}</td>
+                        <td>{{b?.arrivalTime }}</td>
+                     
+
+                        <td>
+                            <button class="btn btn-outline-danger me-2"
+                                (click)="deleteUser(b.busId)">Delete</button>
+                            <button class="btn btn-outline-success" (click)="openPopup(b)">View</button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal " tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Course Details </h4>
+            </div>
+            <div class="modal-body">
+                <form #updateForm="ngForm" (submit)="onUpdate(updateForm)">
+
+                    
+
+                    <div class="row">
+                        <div class="col-4 mt-3">
+                            <div class="form-group">
+                                <label for="busId"> Bus number</label>
+                                <input type="number" readonly class="form-control" [(ngModel)]="selectedBus.busId" name="busId">
+                            </div>
+                        </div>
+                        <div class="col-4 mt-3">
+                            <div class="form-group">
+                                <label for="busName"> Bus Name</label>
+                                <input type="text" class="form-control" [(ngModel)]="selectedBus.busName" name="busName">
+                            </div>
+                        </div>
+                    
+                        <div class="col-4 mt-3">
+                            <div class="form-group">
+                                <label for="driverName">Driver Name </label>
+                                <input type="text" class="form-control" [(ngModel)]="selectedBus.driverName" name="driverName">
+                            </div>
+                        </div>
+                        <div class="col-4 mt-3">
+                            <div class="form-group">
+                                <label for="busType">Bus Type</label>
+                                <input type="text" class="form-control" [(ngModel)]="selectedBus.busType" name="busType">
+                            </div>
+                        </div>
+                        <div class="col-4 mt-3">
+                            <div class="form-group">
+                                <label for="routeFrom"> Route From</label>
+                                <input type="text" class="form-control" [(ngModel)]="selectedBus.routeFrom" name="routeFrom">
+                            </div>
+                        </div>
+                        <div class="col-4 mt-3">
+                            <div class="form-group">
+                                <label for="routeTo"> Route To</label>
+                                <input type="text" class="form-control" [(ngModel)]="selectedBus.routeTo" name="routeTo">
+                            </div>
+                        </div>
+                        <div class="col-4 mt-3">
+                            <div class="form-group">
+                                <label for="routeTo"> Total Seats</label>
+                                <input type="number" class="form-control" [(ngModel)]="selectedBus.seats" name="seats">
+                            </div>
+                        </div>
+                        <div class="col-4 mt-3">
+                            <div class="form-group">
+                                <label for="routeTo"> Avaiable Seats</label>
+                                <input type="number" class="form-control" [(ngModel)]="selectedBus.avaiableSeats" name="avaiableSeats">
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+                        <div class="col-4 mt-3">
+                            <div class="form-group">
+                                <label for="arrivalTime">Arrival Time </label>
+                                <input type="time" class="form-control" [(ngModel)]="selectedBus.arrivalTime" name="arrivalTime">
+                            </div>
+                        </div>
+                        <div class="col-4 mt-3">
+                            <div class="form-group">
+                                <label for="departureTime">Departure Time</label>
+                                <input type="time" class="form-control" [(ngModel)]="selectedBus.departureTime" name="departureTime">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-outline-primary mt-3">Update</button>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

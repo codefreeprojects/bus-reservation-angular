@@ -24,3 +24,44 @@ export interface AdminLoginDTO {
   adminId: number;
   adminPassword: string;
 }
+
+export interface TimeDTO {
+  hour?: number;
+  minute?: number;
+  second?: number;
+  nano?: number;
+}
+
+export interface BusDTO {
+  busId: number;
+  busName: string;
+  driverName: string;
+  busType: string;
+  routeFrom: string;
+  routeTo: string;
+  arrivalTime?: string;
+  departureTime?: string;
+  seats: number;
+  avaiableSeats: number;
+}
+export interface FeedbackDTO {
+  feedBackId?: number;
+  driverRating: number;
+  serviceRating: number;
+  overallRating: number;
+  comments: string;
+  feedbackdate?: string;
+  user?: UserRegisterDTO;
+  bus?: BusDTO;
+}
+
+export interface ReservationDTO {
+  reservationId?: number;
+  reservationStatus: string;
+  reservationType: string;
+  reservationDate: string;
+  reservationTime?: string;
+  source: string;
+  destination: string;
+  bus?: BusDTO;
+}

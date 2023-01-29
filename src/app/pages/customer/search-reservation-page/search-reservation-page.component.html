@@ -1,0 +1,55 @@
+<div class="register_page mt-4">
+    <div class="cantainer">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <h1>Track Reservation </h1>
+                    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+                        <div class="row">
+
+                            <div class="col-4 mt-3">
+                                <div class="form-group">
+                                    <label for="distance">Reservation ID</label>
+                                    <input type="number" class="form-control" ngModel name="reservationid">
+                                </div>
+                            </div>
+
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary mt-3">Search</button>
+                    </form>
+
+                    <div class="row" *ngIf="resevationInfo">
+                        <div class="col-12">
+                            <table class="table table-bordered ">
+                                <tr>
+                                    <th>Reservation ID</th>
+                                    <td>{{resevationInfo.reservationId}}</td>
+                                    <th>Reservation Status</th>
+                                    <td>{{resevationInfo.reservationStatus}}</td>
+                                    <th>Reservation Type</th>
+                                    <td>{{resevationInfo.reservationType}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Reservation Date</th>
+                                    <td>{{resevationInfo.reservationDate}}</td>
+                                    <th>Source</th>
+                                    <td>{{resevationInfo.source}}</td>
+                                    <th>Destination</th>
+                                    <td>{{resevationInfo.destination}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Bus Name</th>
+                                    <td>{{resevationInfo.bus?.busName}}</td>
+                                    <th>Driver Name</th>
+                                    <td>{{resevationInfo.bus?.driverName}}</td>
+                                    <th>Bus Type</th>
+                                    <td>{{resevationInfo.bus?.busType}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

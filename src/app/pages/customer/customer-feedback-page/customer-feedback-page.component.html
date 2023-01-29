@@ -1,0 +1,55 @@
+<div class="register_page mt-4">
+    <div class="cantainer">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <h1>Feedback </h1>
+                    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+
+                        <div class="row">
+                            <div class="col-6 mt-3">
+                                <div class="form-group">
+                                    <label for="distance">Select Bus</label>
+                                    <select type="text" class="form-control" ngModel name="bus">
+                                        <option [value]="b.busId" *ngFor="let b of busesList">{{b.busName + ' '+ b.routeFrom + ' -> '+ b.routeTo}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6"></div>
+                            <div class="col-4 mt-3">
+                                <div class="form-group">
+                                    <label for="userLoginId">Driver Rating</label>
+                                    <input type="number" class="form-control" ngModel name="driverRating"
+                                        id="userLoginId" required>
+                                </div>
+                            </div>
+                            <div class="col-4 mt-3">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Service Rating</label>
+                                    <input type="number" class="form-control" ngModel name="serviceRating">
+                                </div>
+                            </div>
+                       
+                            <div class="col-4 mt-3">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Overall Rating </label>
+                                    <input type="number" class="form-control" ngModel name="overallRating">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 mt-3">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Comments</label>
+                                    <textarea  type="text" class="form-control" ngModel name="comments" ></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary mt-3">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
