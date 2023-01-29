@@ -13,9 +13,11 @@ ADDED IN SecurityConfig.java
 *********************** NOT WORKING THINGS ***********************
 - bus update api PUT:: /bus/update/
 - API not designed well /addReservation
+- API DELETE :: /removeReservation/5 not working
+- API PUT :: /updateReservation/3 not working
 
 *********************** NEED TO BE DONE ***********************
 -- Need to make all fields required
--- Feedbacks table list [admin]
--- list Delete and update reservation [admin]
--- list users delete update [admin]
+-- Feedbacks table list [admin] {DONE}
+-- list Delete and update reservation [admin][DONE]
+-- list users delete update [admin][DONE]

@@ -21,4 +21,16 @@ export class ReservationService {
   findById(id: number) {
     return this.api.get(`/viewReservation/${id}`);
   }
+
+  getAll() {
+    return this.api.get("/viewAllReservation");
+  }
+
+  update(resId: number, data: ReservationDTO) {
+    return this.api.put(`/updateReservation/${resId}`, data);
+  }
+
+  delete(resId: number) {
+    return this.api.delete(`/removeReservation/${resId}`);
+  }
 }

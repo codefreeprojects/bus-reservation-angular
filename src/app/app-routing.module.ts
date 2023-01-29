@@ -20,6 +20,8 @@ import { CustomerDashboardPageComponent } from "./pages/customer/customer-dashbo
 import { ReservationPageComponent } from "./pages/customer/reservation-page/reservation-page.component";
 import { CustomerFeedbackPageComponent } from "./pages/customer/customer-feedback-page/customer-feedback-page.component";
 import { SearchReservationPageComponent } from "./pages/customer/search-reservation-page/search-reservation-page.component";
+import { AdminFeedbacksPageComponent } from "./pages/admin/admin-feedbacks-page/admin-feedbacks-page.component";
+import { AdminReservationPageComponent } from "./pages/admin/admin-reservation-page/admin-reservation-page.component";
 
 const routes: Routes = [
   {
@@ -63,6 +65,14 @@ const routes: Routes = [
       {
         path: "bus-master",
         component: AddBusPageComponent,
+      },
+      {
+        path: "feedbacks",
+        component: AdminFeedbacksPageComponent,
+      },
+      {
+        path: "reservations",
+        component: AdminReservationPageComponent,
       },
     ],
   },

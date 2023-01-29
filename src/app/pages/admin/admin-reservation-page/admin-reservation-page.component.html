@@ -1,0 +1,159 @@
+<div class="register_page">
+  <div class="row mt-4">
+    <div class="col-12 card">
+      <h1>Reservations</h1>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Reservation Id</th>
+            <th scope="col">Reservation Status</th>
+            <th scope="col">Reservation Type</th>
+            <th scope="col">Reservation Date</th>
+            <th scope="col">Reservation Time</th>
+            <th scope="col">Source</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Bus Name</th>
+            <th scope="col">Driver Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let b of reservationList">
+            <td>{{ b?.reservationId }}</td>
+            <td>{{ b.reservationStatus }}</td>
+            <td>{{ b.reservationType }}</td>
+            <td>{{ b.reservationDate | date }}</td>
+            <td>{{ b.reservationTime }}</td>
+            <td>{{ b.source }}</td>
+            <td>{{ b.destination }}</td>
+            <td>{{ b.bus?.busName }}</td>
+            <td>{{ b.bus?.driverName }}</td>
+            <td>
+              <button
+                class="btn btn-outline-danger me-2"
+                (click)="deleteUser(b.reservationId)"
+              >
+                Delete
+              </button>
+              <button class="btn btn-outline-success" (click)="openPopup(b)">
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{ display: displayStyle }"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Course Details</h4>
+      </div>
+      <div class="modal-body">
+        <form #updateForm="ngForm" (submit)="onUpdate(updateForm)">
+          <div class="row">
+            <div class="col-4 mt-3">
+              <div class="form-group">
+                <label for="distance">Reservation Status</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="selectedRes.reservationStatus"
+                  name="reservationStatus"
+                />
+              </div>
+            </div>
+            <div class="col-4 mt-3">
+              <div class="form-group">
+                <label for="distance">Reservation Type</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="selectedRes.reservationType"
+                  name="reservationType"
+                />
+              </div>
+            </div>
+            <div class="col-4 mt-3">
+              <div class="form-group">
+                <label for="distance">Reservation Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  [(ngModel)]="selectedRes.reservationDate"
+                  name="reservationDate"
+                />
+              </div>
+            </div>
+            <div class="col-4 mt-3">
+              <div class="form-group">
+                <label for="distance">Reservation Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  [(ngModel)]="selectedRes.reservationTime"
+                  name="reservationTime"
+                />
+              </div>
+            </div>
+
+            <div class="col-4 mt-3">
+              <div class="form-group">
+                <label for="distance">Source</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="selectedRes.source"
+                  name="source"
+                />
+              </div>
+            </div>
+            <div class="col-4 mt-3">
+              <div class="form-group">
+                <label for="distance">Destination</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="selectedRes.destination"
+                  name="destination"
+                />
+              </div>
+            </div>
+            <!-- <div class="col-6 mt-3">
+              <div class="form-group">
+                <label for="distance">Select Bus</label>
+                <select
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="selectedRes.bus"
+                  name="bus"
+                >
+                  <option [value]="b.busId" *ngFor="let b of busesList">
+                    {{ b.busName + " " + b.routeFrom + " -> " + b.routeTo }}
+                  </option>
+                </select>
+              </div>
+            </div> -->
+          </div>
+
+          <button type="submit" class="btn btn-outline-primary mt-3">
+            Update
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

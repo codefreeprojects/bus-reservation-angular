@@ -28,6 +28,8 @@ import { BusService } from "./services/bus.service";
 import { ReservationService } from "./services/reservation.service";
 import { FeedbackService } from "./services/feedback.service";
 import { SearchReservationPageComponent } from './pages/customer/search-reservation-page/search-reservation-page.component';
+import { AdminFeedbacksPageComponent } from './pages/admin/admin-feedbacks-page/admin-feedbacks-page.component';
+import { AdminReservationPageComponent } from './pages/admin/admin-reservation-page/admin-reservation-page.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { SearchReservationPageComponent } from './pages/customer/search-reservat
     ReservationPageComponent,
     CustomerFeedbackPageComponent,
     SearchReservationPageComponent,
+    AdminFeedbacksPageComponent,
+    AdminReservationPageComponent,
   ],
   imports: [
     BrowserModule,

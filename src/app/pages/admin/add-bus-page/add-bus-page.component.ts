@@ -69,7 +69,7 @@ export class AddBusPageComponent {
 
   //MODAL METHODS
   openPopup(b: BusDTO) {
-    this.selectedBus = b;
+    this.selectedBus = { ...b };
     this.displayStyle = "block";
   }
   closePopup() {

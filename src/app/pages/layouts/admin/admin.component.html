@@ -1,30 +1,53 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/admin">University System</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            
-            <li class="nav-item">
-                <a class="nav-link"  routerLink="/admin/bus-master" routerLinkActive="active">Bus Master</a>
-            </li>
-            <li class="nav-item">
+  <a class="navbar-brand" href="/admin">Bus Reservation System</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/admin/bus-master"
+          routerLinkActive="active"
+          >Bus Master</a
+        >
+      </li>
+      <!-- <li class="nav-item">
                 <a class="nav-link" routerLink="/admin/route-master" routerLinkActive="active">Route Master</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/admin/reservations" routerLinkActive="active">Add Admission</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/admin/reservations" routerLinkActive="active">Feedbacks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="logoutBtn" href="#" (click)="onLogout()">Logout</a>
-            </li>
-        </ul>
-    </div>
+            </li> -->
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/admin/reservations"
+          routerLinkActive="active"
+          >Reservations</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/admin/feedbacks"
+          routerLinkActive="active"
+          >Feedbacks</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="logoutBtn" href="#" (click)="onLogout()"
+          >Logout</a
+        >
+      </li>
+    </ul>
+  </div>
 </nav>
 <div class="container mt-4">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

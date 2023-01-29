@@ -1,0 +1,35 @@
+<div class="register_page">
+
+
+    <div class="row mt-4">
+        <div class="col-12 card">
+<h1>Feedbacks </h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Bus Name</th>
+                        <th scope="col">driverRating</th>
+                        <th scope="col">serviceRating</th>
+                        <th scope="col">overallRating</th>
+                        <th scope="col">comments</th>
+                        <th scope="col">feedbackdate</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let b of feedbackList">
+                        <td>{{b.user?.firstName }} {{b.user?.lastName }}</td>
+                        <td>{{b.bus?.busName }}</td>
+                        <td>{{b.driverRating}}</td>
+                        <td>{{b.serviceRating}}</td>
+                        <td>{{b.overallRating}}</td>
+                        <td>{{b.comments}}</td>
+                        <td>{{b.feedbackdate | date}}</td>
+                  
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
